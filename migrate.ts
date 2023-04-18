@@ -30,8 +30,6 @@ export async function migrate(
     } as Migration);
   }
 
-  console.log(`Migrations detected total, ${migrations.length}`);
-
   const migrated = await sql`
     select name from migrations
   `;
@@ -40,7 +38,9 @@ export async function migrate(
     migration,
   ) => !migrated.some((m) => m.name === migration.name));
 
-  console.log(`Migrations detected new, ${migrationsNew.length}`);
+  console.log(
+    `Migrations detected (total: ${migrations.length}, new: ${migrationsNew.length})`,
+  );
 
   for (const m of migrationsNew) {
     console.log(`Migrations running, ${m.name}`);
@@ -56,4 +56,5 @@ export async function migrate(
   }
 
   console.log("Migrations done");
+  console.log("");
 }

@@ -24,7 +24,6 @@ export async function migrate(
     }
 
     migrations.push({
-      id: Number(migration.name.slice(0, 6)),
       path: join(options.path, migration.name),
       name: migration.name,
     } as Migration);
@@ -34,9 +33,12 @@ export async function migrate(
     select name from migrations
   `;
 
-  const migrationsNew = migrations.sort((a, b) => a.id - b.id).filter((
-    migration,
-  ) => !migrated.some((m) => m.name === migration.name));
+  const migrationsNew = migrations.sort((a, b) => a.name.localeCompare(b.name))
+    .filter(
+      (
+        migration,
+      ) => !migrated.some((m) => m.name === migration.name),
+    );
 
   console.log(
     `Migrations detected (total: ${migrations.length}, new: ${migrationsNew.length})`,

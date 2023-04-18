@@ -3,7 +3,6 @@ interface Options {
 }
 
 interface Migration {
-  id: number;
   path: string;
   name: string;
 }

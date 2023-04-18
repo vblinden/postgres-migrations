@@ -4,7 +4,7 @@ Super simple PostgreSQL migrations for postgres in Deno
 
 ## Import
 ```ts
-import { migrate } from "https://deno.land/x/postgres_migrations@v1.0.1/mod.ts";
+import { migrate } from "https://deno.land/x/postgres_migrations@v1.1.0/mod.ts";
 ```
 
 ## Migrate
@@ -22,7 +22,7 @@ migrations\
 
 ``` ts
 import postgres from "https://deno.land/x/postgresjs@v3.3.4/mod.js";
-import { migrate } from "https://deno.land/x/postgres_migrations@v1.0.1/mod.ts";
+import { migrate } from "https://deno.land/x/postgres_migrations@v1.1.0/mod.ts";
 
 const sql = postgres("postgres://johndoe:secret@localhost:5432/example");
 

@@ -1,6 +1,6 @@
 # PostgreSQL migrations
 
-Super simple PostgreSQL migrations for postgres in Deno
+Super simple PostgreSQL migrations for [postgresjs](https://github.com/porsager/postgres) in Deno
 
 ## Import
 ```ts
